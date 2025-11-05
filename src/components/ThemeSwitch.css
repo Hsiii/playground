@@ -1,0 +1,100 @@
+.theme-switch {
+    --width: calc(5.5rem);
+    
+    position: absolute;
+    top: 50%;
+    right: 0;
+    
+    width: var(--width);
+    height: 55%;
+    border-radius: 2rem 0 0 2rem;
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+    translate: calc(var(--width) - 3rem) -50%;
+    transition: translate .2s ease-out;
+    
+    z-index: 20;
+
+    opacity: 1;
+    pointer-events: all;
+
+    &.hide {
+        pointer-events: none;
+        & .indicator {
+            opacity: 0;
+        }
+    }
+    
+    &:hover {
+        translate: 0 -50%;
+        border: solid 1px var(--clr-link-filler-border);
+        border-right: none;
+        background-color: var(--clr-link-filler);
+        backdrop-filter: blur(1rem);
+
+        & .indicator {
+            translate: 3rem -50%;
+            opacity: 0;
+        }
+
+        & input {
+            translate: 0;
+            opacity: 1;
+        }
+    }
+    
+    & .indicator {
+        position: absolute;
+        top: 50%;
+        left: 100%;
+    
+        width: .3rem;
+        height: 16rem;
+    
+        background-color: var(--clr-btn);
+        border-radius: .5rem;
+        opacity: .5;
+    
+        translate: -4rem -50%;
+        transition: translate .1s, opacity .4s ease-in;
+
+        display: flex;
+        align-items: center;
+
+        & i {
+            color: var(--clr-btn);
+            position: relative;
+            font-size: 1.2rem;
+            right: 2rem;
+        }
+    }
+
+    & form {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 2rem;
+    }
+
+    & input {
+        appearance: none;
+        width: 2rem;
+        height: 2rem;
+        border-radius: 50%;
+        outline: var(--clr) .3rem solid;
+        outline-offset: 2px;
+        opacity: 0;
+        transition: .1s;
+
+        &:checked {
+            background-color: var(--clr);
+        }
+    }
+}

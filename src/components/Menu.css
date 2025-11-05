@@ -1,0 +1,109 @@
+.menu-toggle {
+    width: 40px;
+    height: 40px;
+    margin-top: calc(8vh - 20px);
+    border: var(--clr-btn) 1px solid;
+    border-radius: 50%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    position: sticky;
+    top: calc(8vh - 20px);
+    left: calc(100% - 8vh);
+    
+    translate: -50% 0;
+    z-index: 20;
+    pointer-events: all;
+}
+
+.bar {
+    width: 16px;
+    height: 1px;
+    position: absolute;
+    top: calc(50% + var(--i) * 4px);
+    background-color: var(--clr-btn);
+    transition: .5s ease-in;
+    z-index: 5;
+}
+
+.menu-toggle.expand .bar {
+    top: 50%;
+    &:first-child {
+        rotate: -225deg;
+    }
+    &:nth-child(2) {
+        rotate: -135deg;
+    }
+    &:nth-child(3) {
+        rotate: -45deg;
+    }
+    &:nth-child(4) {
+        transition: .8s .4s;
+        transform: 
+            translateY(48px) 
+            scaleX(4);
+    }
+    &:nth-child(5) {
+        transition: .8s .4s;
+        transform: 
+            translateY(calc(var(--sectionNum) * 48px + 48px + 96px)) 
+            scaleX(4);
+    } 
+}
+
+.menu {
+    position: fixed;
+    top: 0;
+    width: 11.6vh;
+    height: 0;
+    overflow: hidden;
+    pointer-events: none;
+    transition: .5s ease-in;
+    transition-delay: 0s;
+    
+    .menu-toggle.expand & {
+        height: calc(var(--sectionNum) * 48px + 48px + 96px);
+        transition-delay: .25s !important;
+    }
+}
+
+span {
+    position: relative;
+    right: 60px;
+    color: var(--clr-btn);
+    pointer-events: none;
+    transition: 1s;
+    
+    .menu-toggle.expand & {
+        right: 20px;
+        opacity: 0;
+    }
+}
+
+
+.to-top, 
+.section-nav {
+    display: block;
+    width: 100%;
+    height: 48px;
+    text-align: center;
+    color: var(--clr-btn);
+    font-size: 1.2rem;
+    pointer-events: all;
+    &:hover {
+        font-weight: 600;
+        color: var(--clr-btn);
+        text-decoration: none;
+    }
+}
+
+.to-top ion-icon {
+    translate: 0 25%;
+}
+
+.section-nav:first-child {
+    margin-top: 96px;
+}

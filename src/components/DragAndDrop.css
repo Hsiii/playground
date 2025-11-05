@@ -1,0 +1,10 @@
+.drag-and-drop {
+    width: 100%;
+    height: 100vh;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background-color: var(--clr-section-bg);
+}

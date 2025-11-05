@@ -1,0 +1,143 @@
+@-moz-document url(https://www.ccxp.nthu.edu.tw/ccxp/INQUIRE/), url(https://www.ccxp.nthu.edu.tw/ccxp/INQUIRE/index.php) {
+    body {
+        background-color: #222831 !important;
+        height: 100vh;
+        display: flex !important;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+
+        color: #fff !important;
+    }
+    
+    html img ~ input {
+        border-right: #393E46 !important;
+    }
+
+    input {
+        font-size: 1rem !important;
+    }
+
+    input:focus {
+        border: none !important;
+        background: #eee !important;
+        outline: none !important;
+    }
+
+    input:nth-last-child(2) {
+        border-right: #393E46 1px solid !important;
+    }
+
+    img {
+        display: none !important;
+    }
+
+    td input + img {
+        display: block !important;
+    }
+    
+    table {
+        display: none !important;
+    }
+
+    table:has(form) {
+        display: flex !important;
+        width: 30rem !important;
+        height: 30rem !important;
+        background: #393E46 !important;
+    }
+
+    tbody {
+        width: 100%;
+        height: 100%;
+        display: flex !important;
+        flex-direction: column;
+        justify-content: start;
+        align-items: start;
+    }
+
+    form + tbody {
+        justify-content: center !important;
+        align-items: center !important;
+    }
+
+    tr {
+        display: none !important;
+    }
+    
+    tr:has(input) {
+        display: flex !important;
+        flex-direction: column;
+        justify-content: start;
+        align-items: start;
+        width: 100% !important;
+        height: 4.5rem !important;
+    }
+
+    tr:has(input) td {
+        width: 100% !important;
+        display: flex !important;
+        flex-direction: row;
+        justify-content: center;
+        font-size: 1.5rem !important;
+        font-weight: 800 !important; 
+        text-align: left !important;
+        padding-bottom: .2rem;
+    }
+
+    td {
+        font-size: 0 !important;
+    }
+
+    tr:has(table), td:has(table) {
+        height: 100% !important;
+        padding: 0 !important;
+    }
+
+    td:nth-last-child(3) {
+        display: none !important;
+    }
+
+    html body .input_box {
+        width: 80px !important; 
+        border-bottom: 0 !important;
+      	text-align: center !important;
+				font-size: 1rem !important
+
+  	
+
+
+
+    }
+
+    .bottom_class {
+        font-size: 1rem !important;
+        color: #00aeb1 !important;
+        background-image: none !important;
+        background: #eee !important;
+        height: auto !important;
+        border: none !important;
+        padding: .5rem 1rem !important;
+        translate: 7px 1rem;
+    }
+
+    tr td .bottom_class:nth-child(2) {
+        display: none !important;
+    }
+}
+
+@-moz-document url(https://www.ccxp.nthu.edu.tw/ccxp/COURSE/) {
+    body {
+        background-image: none !important;
+        background-color: #222831;
+        color: #eee !important;
+    }
+    table {
+        border: #ddd 2px solid !important;
+    }
+    
+    td {
+        color: #eee !important;
+        background-color: #393E46 !important;
+    }
+}

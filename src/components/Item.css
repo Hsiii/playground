@@ -1,0 +1,16 @@
+.item {
+    position: relative;
+    width: 4rem;
+    height: 4rem;
+    margin: 1rem;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    font-size: 2rem;
+    color: #eee;
+    background-color: #00aeb1;
+
+    cursor: move;
+}

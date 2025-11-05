@@ -1,0 +1,72 @@
+.ball-section {
+    width: 100%;
+    height: 100vh;
+    position: relative;
+    background-color: var(--clr-box-top);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 40px;
+    overflow: hidden;
+
+    /* cursor: url('image/cursor-diamond.png'), auto; */
+
+    perspective: 20em;
+    perspective-origin: 50% calc(50% - 5em);
+}
+
+.scene {
+    position: relative;
+    transform: 
+        rotateY(var(--deg)) 
+        translateY(2em);
+    transform-style: preserve-3d;
+}
+
+.floor {
+    width: 12em;
+    height: 12em;
+    border-radius: 12em;
+    background-color: var(--clr-box-top);
+    transform: 
+        rotateX(90deg) 
+        translateZ(2em) 
+        scale(2.5);
+    opacity: 1;
+    z-index: -1;
+}
+
+.ball-section [class *= 'scroll'] {
+    color: var(--clr-btn);
+    opacity: .4;
+    font-size: 2rem;
+    width: fit-content;
+    position: absolute;
+    top: 0;
+    z-index: 20;
+    &:hover {
+        opacity: .8;
+        transition: 0.4s;
+    }
+}
+
+.keep {
+    opacity: 1 !important;
+    text-shadow: 0 0 10px var(--clr-btn); 
+}
+
+.ball-section .scroll-left {
+    left: 0;
+    transform: 
+        rotate(90deg) 
+        translateY(-50%) 
+        translateX(50vh);
+}
+
+.ball-section .scroll-right {
+    right: 0;
+    transform: 
+        rotate(270deg) 
+        translateY(-50%) 
+        translateX(-50vh);
+}

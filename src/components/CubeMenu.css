@@ -1,0 +1,290 @@
+.cube-menu {
+    --cube_width: 5rem;
+    --cube_rotate: 45deg;
+    --rotate: 0deg;
+    
+    --facebook_color: rgb(66, 103, 178);
+    --messenger_color: 
+        linear-gradient(
+            45deg, 
+            rgba(6,149,255,1) 0%, 
+            rgba(163,52,250,1) 60%, 
+            rgba(255,105,104,1) 100%
+        );/*rgb(0, 178, 255);*/
+    --twitter_color: rgb(29, 202, 255);
+    --pixiv_color: rgb(77,166,255);
+
+    width: var(--cube_width);
+    height: var(--cube_width);
+    font-size: 2rem;
+    transform-style: preserve-3d;
+    transform: 
+        rotateX(-30deg)
+        rotateY(var(--cube_rotate));
+    transition: 0.5s;
+    z-index: 15;
+}
+
+.cube-menu a {
+    /* cursor: url('images/cursor.png'), auto; */
+}
+
+.top, 
+.side {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: var(--cube_width);
+    height: var(--cube_width);
+    color: #ddd;
+    background-color: var(--clr-cube);
+    transform: 
+        rotateX(90deg) 
+        translateZ(calc(var(--cube_width) / 2));
+    transition: 0.2s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform-style: preserve-3d;
+}
+
+html .side {
+    transform: 
+        rotateY(calc(90deg * var(--i))) 
+        translateZ(calc(var(--cube_width) / 2));
+}
+
+.top:before, 
+.top:after, 
+.side:after {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: var(--cube_width);
+    height: var(--cube_width);
+    color: #ddd;
+    background-color: var(--clr-accent);
+    transform: 
+        translateZ(calc(var(--cube_width) / 4 * -1)) 
+        scale(.98);
+    transition: 0.1s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform-style: preserve-3d;
+}
+
+html .top:before {
+    transform: 
+        translateZ(calc(var(--cube_width) * -1)) 
+        scale(.98);
+}
+
+.side:before {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: var(--cube_width);
+    height: calc(var(--cube_width) * 1.5);
+    color: #ddd;
+    background-color: var(--clr-accent);
+    transform: 
+        rotateX(90deg) 
+        rotateY(180deg) 
+        rotateZ(180deg) 
+        translateZ(calc(var(--cube_width) * .75)) 
+        translateY(calc(var(--cube_width) * -1));
+    transition: .5s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform-style: preserve-3d;
+    filter: blur(10px);
+    opacity: 0;
+    pointer-events: none;
+}
+
+.shine .side:before {
+    opacity: .8;
+}
+
+.sides {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+}
+
+.top:hover  {
+    background-color: var(--clr-primary);
+    color: white;
+}
+
+.shine .top {
+    background-color: var(--clr-primary);
+    color:white;
+}
+
+.top ion-icon {
+    position: absolute;
+    transform: rotateZ(var(--rotate));
+}
+
+.side i {
+    position: absolute;
+}
+
+.side svg {
+    position: absolute;
+    transform: scale(0.5);
+}
+
+.top:hover ion-icon {
+    transition: .5s;
+    color: white;
+    transition: 0.5s;
+    transform: 
+        translateZ(15px) 
+        rotateZ(var(--rotate));
+}
+
+.side:hover i, .shine .side i {
+    transition: .5s;
+    color: white;
+    transform: translateZ(15px);
+}
+
+.side:hover svg, .shine .side svg {
+    transition: .5s;
+    transform: 
+        scale(0.5) 
+        translateZ(15px);
+}
+
+.top:hover ion-icon:nth-child(1) {
+    transition: .5s;
+    transform: 
+        translateZ(0) 
+        rotateZ(var(--rotate));
+    color: rgba(0, 0, 0, 0.5);
+    filter: blur(5px);
+}
+
+.side:hover i:nth-child(1) {
+    transition: .5s;
+    transform: 
+        translateZ(0) 
+        translateY(5px);
+    color: rgba(0, 0, 0, 0.5);
+    filter: blur(5px);
+}
+
+.side:hover svg:nth-child(1) {
+    transition: .5s;
+    transform: 
+        scale(0.5) 
+        translateZ(0) 
+        translateY(5px);
+    opacity: 0.5;
+    filter: blur(5px);
+}
+
+
+.shine .side i:nth-child(3) {
+    transform: 
+        rotateX(90deg) 
+        rotateY(180deg) 
+        rotateZ(180deg) 
+        translateZ(calc(var(--cube_width) * .95)) 
+        translateY(calc(var(--cube_width) * -1)) 
+        scaleY(1.5);
+    color: #232323;
+    filter: blur(5px);
+    z-index: 5;
+    opacity: .8;
+    transition: .5s;
+} 
+
+.side svg:nth-child(3) {
+    display: none;
+    opacity: .8;
+    transition: .5s;
+}
+
+.shine .side svg:nth-child(3){
+    display: block;
+    transform: 
+        rotateX(90deg) 
+        rotateY(180deg) 
+        rotateZ(180deg) 
+        translateZ(calc(var(--cube_width) * .95)) 
+        translateY(calc(var(--cube_width) * -1)) 
+        scaleY(1.5) 
+        scale(.5);
+    z-index: 5;
+    filter: blur(10px);
+} 
+
+.bottom {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: var(--cube_width);
+    height: var(--cube_width);
+    background-color: var(--clr-cube);
+    opacity: .3;
+    transform: 
+        rotateX(90deg) 
+        translateZ(calc(var(--cube_width) * -1));
+    filter: blur(10px);
+}
+
+.shine .bottom {
+    background-color: var(--clr-primary);
+}
+
+.side:nth-child(1):hover,
+.shine .side:nth-child(1) {
+    transition: 0.5s;
+    background: var(--facebook_color);
+}
+
+.side:nth-child(2):hover,
+.shine .side:nth-child(2) {
+    transition: 0.5s;
+    background: var(--messenger_color);
+}
+
+.side:nth-child(3):hover,
+.shine .side:nth-child(3) {
+    transition: 0.5s;
+    background: var(--twitter_color);
+}
+
+.side:nth-child(4):hover,
+.shine .side:nth-child(4) {
+    transition: 0.5s;
+    background: var(--pixiv_color);
+}
+
+.side:nth-child(1):before {
+    background: var(--facebook_color);
+}
+
+.side:nth-child(2):before {
+    background: var(--messenger_color);
+}
+
+.side:nth-child(3):before {
+    background: var(--twitter_color);
+}
+
+.side:nth-child(4):before {
+    background: var(--pixiv_color);
+}

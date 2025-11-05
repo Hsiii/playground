@@ -1,0 +1,10 @@
+/*grid later*/
+
+.item-container {
+    position: relative;
+    display: grid;
+    width: 16rem;
+    height: 16rem;
+    margin: 1rem;
+    background-color: #393e46;
+}

@@ -1,0 +1,26 @@
+.ball {
+    position: relative;
+    top: calc(4em - var(--z));
+    left: 5.5em;
+
+    width: 1em;
+    height: 1em;
+
+    transform: 
+        translateZ(var(--y))
+        translateX(var(--x));
+    transform-style: preserve-3d;
+    transition: .1s;
+}
+
+.circle {
+    position: relative;
+
+    width: 1em;
+    height: 1em;
+    border-radius: 50%;
+
+    background-color: var(--clr-ball);
+    
+    transform: rotateY(var(--deg));
+}
